@@ -17,7 +17,7 @@
         <tr>
             <td><%= idea.name %></td>
             <td><%= idea.description %></td>
-            <td>f</td>
+            <td><%= image_tag idea.picture_url(:thumb) if idea.picture? %></td>
             <td>
 
                 <div class="ui buttons">

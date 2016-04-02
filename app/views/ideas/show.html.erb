@@ -12,7 +12,7 @@
 
 <p>
   <strong>Picture:</strong>
-    <%= image_tag(@idea.picture_url, :width => 600) if @idea.picture.present? %>
+  <td><%= image_tag @idea.picture_url(:thumb) if @idea.picture? %></td>
 </p>
 
 <div class="ui divider"></div>
