@@ -2,28 +2,51 @@
 
 <h1>Listing Ideas</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Picture</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<table class="ui celled table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Picture</th>
+            <th>Action</th>
+        </tr>
+    </thead>
 
-  <tbody>
-    <% @ideas.each do |idea| %>
-      <tr>
-        <td><%= idea.name %></td>
-        <td><%= idea.description %></td>
-        <td><%= idea.picture %></td>
-        <td><%= link_to 'Show', idea %></td>
-        <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
-        <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+    <tbody>
+        <% @ideas.each do |idea| %>
+        <tr>
+            <td><%= idea.name %></td>
+            <td><%= idea.description %></td>
+            <td> <%= image_tag(idea.picture_url, :width => 600) if idea.picture.present? %></td>
+            <td>
+                <div class="ui buttons">
+                <div class="ui animated button positive" tabindex="0">
+                    <div class="visible content"><%= link_to 'Show', idea %></div>
+                    <div class="hidden content">
+                        <i class="unhide icon"></i>
+                        <%= link_to 'Show', idea %>
+                    </div>
+                </div>
+                <div class="ui animated button blue" tabindex="0">
+                    <div class="visible content"><%= link_to 'Edit', edit_idea_path(idea) %></div>
+                    <div class="hidden content">
+                        <i class="write icon"></i>
+                        <%= link_to 'Edit', edit_idea_path(idea) %>
+                    </div>
+                </div>
+                <div class="ui animated button negative" tabindex="0">
+                    <div class="visible content"><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+                    <div class="hidden content">
+                        <i class="trash icon"></i>
+                        <%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    </div>
+                </div>
+            </div>
+
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
 </table>
 
 <br>

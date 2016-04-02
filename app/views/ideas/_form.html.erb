@@ -11,6 +11,10 @@
     </div>
   <% end %>
 
+  <div class="ui center aligned container">
+
+
+<div class="ui form">
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -21,9 +25,11 @@
   </div>
   <div class="field">
     <%= f.label :picture %><br>
-    <%= f.file_field :picture %>
+    <%= f.file_field :picture, :class => 'ui button' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Save Idea", :class => 'primary ui button huge' %>
   </div>
+</div>
+</div>
 <% end %>
