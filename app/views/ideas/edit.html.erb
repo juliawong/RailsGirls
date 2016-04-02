@@ -2,5 +2,23 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @idea %> |
-<%= link_to 'Back', ideas_path %>
+<div class="ui buttons">
+<%= link_to(@idea) do %>
+    <div class="ui animated button" tabindex="0">
+        <div class="visible content">Show</div>
+        <div class="hidden content">
+            <i class="unhide icon"></i>
+            Show
+        </div>
+    </div>
+<% end %>
+<%= link_to(ideas_path) do %>
+    <div class="ui animated button" tabindex="0">
+        <div class="visible content">Back</div>
+        <div class="hidden content">
+            <i class="left arrow icon"></i>
+            Back
+        </div>
+    </div>
+<% end %>
+</div>

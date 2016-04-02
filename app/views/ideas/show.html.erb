@@ -23,10 +23,12 @@
     <strong><%= comment.user_name %></strong>
     <br />
     <p><%= comment.body %></p>
-  <div class="circular negative ui icon button" tabindex="0">
-  <div class="visible content"></div>
-  <div class="hidden content">
-    <%= link_to "<i class='trash icon small'></i>".html_safe, comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+    <%= link_to(comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }) do %>
+        <div class="circular negative ui icon button" tabindex="0">
+        <i class='trash icon small'></i>
+        </div>
+    <% end %>
   </div>
 </div>
   </div>
@@ -35,18 +37,22 @@
 <%= render 'comments/form' %>
 
 <div class="ui buttons">
-<div class="ui animated button" tabindex="0">
-    <div class="visible content"><%= link_to 'Back', ideas_path %></div>
-    <div class="hidden content">
-        <i class="left arrow icon"></i>
-        <%= link_to 'Back', ideas_path %>
+<%= link_to(ideas_path) do %>
+    <div class="ui animated button" tabindex="0">
+        <div class="visible content">Back</div>
+        <div class="hidden content">
+            <i class="left arrow icon"></i>
+            Back
+        </div>
     </div>
-</div>
-<div class="ui animated button" tabindex="0">
-    <div class="visible content"><%= link_to 'Edit', edit_idea_path(@idea) %></div>
-    <div class="hidden content">
-        <i class="write icon"></i>
-        <%= link_to 'Edit', edit_idea_path(@idea) %>
+<% end %>
+<%= link_to(edit_idea_path(@idea)) do %>
+    <div class="ui animated button" tabindex="0">
+        <div class="visible content">Edit</div>
+        <div class="hidden content">
+            <i class="write icon"></i>
+            Edit
+        </div>
     </div>
-</div>
+<% end %>
 </div>
